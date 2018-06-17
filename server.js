@@ -1,8 +1,8 @@
-const   express = require("express")
-const   hbs = require("hbs")
-const   app = express();
-const   fs = require("fs")
-
+const   express = require("express"),
+        hbs = require("hbs"),
+        app = express(),
+        fs = require("fs"),
+        port = process.env.PORT || 3000;
 // Helpers and Partials
 hbs.registerPartials(__dirname + "/views/partials");
 hbs.registerHelper("getYear", () => {
@@ -47,10 +47,10 @@ app.get("/bad", function (req, res){
     res.json({errorMessage: "Not found!"})
 });
 // Listen
-app.listen(3000, function (err){
+app.listen(port, function (err){
     if (err){
         console.log(err);
     } else {
-        console.log("Server is running on port 3000")
+        console.log(`Server is running on port ${port}`)
     }
 });
