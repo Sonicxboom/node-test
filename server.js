@@ -46,6 +46,12 @@ app.get("/about", (req, res) => {
 app.get("/bad", function (req, res){
     res.json({errorMessage: "Not found!"})
 });
+
+app.get("/portfolio", function (req, res) {
+    res.render("./portfolio.hbs", {
+        title: "Portfolio"
+    })
+})
 // Listen
 app.listen(port, function (err){
     if (err){
